@@ -4,8 +4,7 @@ import EditProductFrom from '../../components/EditProductFrom'
 
 export default function EditProduct(props) {
     const [myproduct, setMyProduct] = useState([])
-
-
+    
       useEffect(() => {
         const fetchMyProduct = async () => {
             let result = await getAllProduct()

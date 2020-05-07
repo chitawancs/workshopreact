@@ -17,6 +17,8 @@ export default function EditFrom(props) {
   props.edit(user)
   }
 
+ 
+
   useEffect(() => {
     if (props.check === "Edit") {
       setName(props.user.name)
