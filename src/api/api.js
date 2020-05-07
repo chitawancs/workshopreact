@@ -59,12 +59,3 @@ export const editProduct = (id, product) => {
     })
   })
 }
-
-
-export const editProduct2 = (id, product) => {
-  return new Promise((resolve, reject) => {
-    axios.put(url + '/products/' + id, product).then(res => {
-      resolve(res.data)
-    })
-  })
-}

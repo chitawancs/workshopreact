@@ -7,7 +7,7 @@ export default function AllProduct(props) {
             <table class="table table-striped">
         <thead>
           <tr>
-            <th scope="col">No2.</th>
+            <th scope="col">No.</th>
             <th scope="col">product_id</th>
             <th scope="col">user_id</th>
             <th scope="col">title</th>
