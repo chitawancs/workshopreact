@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from "react-router-dom";
 export default function MyProduct(props) {
     return (
         <div>
@@ -14,11 +14,12 @@ export default function MyProduct(props) {
             <th scope="col">detail</th>
             <th scope="col">stock</th>
             <th scope="col">price</th>
+            <th scope="col"> </th>
           </tr>
         </thead>
         <tbody>
           {
-            props.myproduct.map((item, index) => (
+            props.my_product.map((item, index) => (
               <tr key = {item,index}>
               <th scope="row">{ index + 1 }</th>
               <td >{item._id}</td>
@@ -27,7 +28,15 @@ export default function MyProduct(props) {
               <td>{item.detail}</td>
               <td>{item.stock}</td>
               <td>{item.price}</td>
+              
               <td>
+              <Link
+                    style={{ textDecoration: "none" }}
+                    to={`/product/edit/${item._id}`}
+                  >
+                    Edit
+                  </Link> | 
+                  <span onClick={() => props.delete(item._id)} style={{ color: "red", cursor: 'pointer' }}>Delete</span>
               </td>
             </tr>
             ))

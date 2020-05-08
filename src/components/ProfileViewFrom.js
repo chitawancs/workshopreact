@@ -21,10 +21,10 @@ export default function ProfileViewFrom(props) {
          <h3>Name : {name}</h3>
          <h3>Age : {age}</h3>
          <h3>Salary : {salary}</h3>
-         to={`/edit/${props.user._id}`}
-         <button type="button" class="btn btn-primary">
+        
+         <Link  to={`/edit/${props.user._id}`} type="button" class="btn btn-primary">
             Edit Profile
-        </button>
+        </Link>
         </div>
     )
 }

@@ -5,8 +5,6 @@ export default function EditFrom(props) {
   const [age, setAge] = useState(0)
   const [salary, setSalary] = useState(0)
 
-
-
   const edit = async (e) => {
     e.preventDefault()
     let user = {
@@ -14,10 +12,8 @@ export default function EditFrom(props) {
       age: age,
       salary: salary
     }
-  props.edit(user)
+    props.edit(user)
   }
-
- 
 
   useEffect(() => {
     if (props.check === "Edit") {
@@ -32,15 +28,15 @@ export default function EditFrom(props) {
       <form onSubmit={edit}>
         <div class="form-group">
           <label for="name">Name</label>
-          <input type="text" value={name} onChange={(e) => setName(e.target.value)} class="form-control" id="name" aria-describedby="emailHelp"/>
+          <input type="text" value={name} onChange={(e) => setName(e.target.value)} class="form-control" id="name" aria-describedby="emailHelp" />
         </div>
         <div class="form-group">
           <label for="age">Age</label>
-          <input type="number" value={age} onChange={(e) => setAge(e.target.value)} class="form-control" id="age"/>
+          <input type="number" value={age} onChange={(e) => setAge(e.target.value)} class="form-control" id="age" />
         </div>
         <div class="form-group">
           <label for="salary">Salary</label>
-          <input type="number" value={salary} onChange={(e) => setSalary(e.target.value)} class="form-control" id="salary"/>
+          <input type="number" value={salary} onChange={(e) => setSalary(e.target.value)} class="form-control" id="salary" />
         </div>
         <button type="submit" class="btn btn-success btn-block">Create</button>
       </form>

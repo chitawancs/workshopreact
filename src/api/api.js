@@ -52,10 +52,19 @@ export const addProduct = (product) => {
   })
 }
 
+
 export const editProduct = (id, product) => {
   return new Promise((resolve, reject) => {
-    axios.put(url + '/products/' + id, product).then(res => {
-      resolve(res.data)
-    })
-  })
-}
+    axios.put(url + "/products/" + id, product).then((res) => {
+      resolve(res.data);
+    });
+  });
+};
+
+export const deleteProduct = (id) => {
+  return new Promise((resolve, reject) => {
+    axios.delete(url + "/products/" + id).then((res) => {
+      resolve(res.data);
+    });
+  });
+};

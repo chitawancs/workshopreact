@@ -1,12 +1,15 @@
 import React,{ useState } from "react";
 import "./Login.css";
 import {login} from "../../api/api"
-import Profile from "../Profile/Profile";
+import Token from '../../helper/PrivateRoute'
 
 export default function Login(props) {
-  
+  localStorage.clear();
+
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+
+  
 
   const nLogin = async (e) => {
     e.preventDefault()
@@ -16,9 +19,11 @@ export default function Login(props) {
     }
     let result = await login(user)
     console.log(result)
+  
     if (result.status === "success") {
-      localStorage.setItem('Myuser',result.data._id)
+      localStorage.setItem('MyUser',result.data._id)
       props.history.push(`/profile/${result.data._id}`)
+      
     }
   }
   return (
@@ -30,7 +35,7 @@ export default function Login(props) {
           width="200"
         ></img>
       </div>
-      <form onSubmit ={nLogin }> 
+      <form onSubmit ={nLogin}> 
         <div className="form-group">
         <h5 style = {{color : 'blue'}}>Username</h5>
           <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} class="form-control" id="username" aria-describedby="emailHelp"/>

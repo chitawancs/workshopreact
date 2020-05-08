@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css';
 import { Route, Switch, Redirect } from 'react-router-dom'
-import Header from './components/้Header'
+import PrivateRoute from "./helper/PrivateRoute";
+import MainHeader from './components/MainHeader'
 import Home from './pages/Home/Home'
 import Login from './pages/Login/Login'
 import Register from './pages/Register/Register'
@@ -10,7 +11,9 @@ import Edit from './pages/Edit/Edit'
 import Products from './pages/Products/Products';
 import AddProduct from './pages/Products/AddProduct'
 import EditProduct from './pages/Edit/EditProduct'
-import { editProduct } from './api/api';
+import Mproduct from './pages/Products/Mproduct'
+import NotFound from './pages/NotFound/NotFound'
+
 var routes = {
   home: '/home',
   login: '/login',
@@ -18,6 +21,7 @@ var routes = {
   profile: '/profile/:id',
   edit: '/edit/:id',
   product: '/product',
+  myproduct: '/myproduct',
   addproduct: '/product/add',
   editproduct: '/product/edit/:id'
 }
@@ -25,18 +29,23 @@ var routes = {
 function App() {
   return (
     <div>
-      <Header/>
+      <MainHeader/>
       <div className="container">
         <Switch>
         <Redirect exact from="/" to={routes.login}></Redirect>
           <Route exact path={routes.login} component={Login}></Route>
-          <Route exact path={routes.home} component={Home}></Route>
           <Route exact path={routes.register} component={Register}></Route>
-          <Route exact path={routes.profile} component={Profile}></Route>
-          <Route exact path={routes.edit} component={Edit}></Route>
-          <Route exact path={routes.product} component={Products}></Route>
-          <Route exact path={routes.addproduct} component={AddProduct}></Route>
-          <Route exact path={routes.editproduct} component={EditProduct}></Route>
+          
+          
+        </Switch>
+        <Switch>
+          <PrivateRoute exact path={routes.home} component={Home}></PrivateRoute>
+          <PrivateRoute exact path={routes.profile} component={Profile}></PrivateRoute>
+          <PrivateRoute exact path={routes.edit} component={Edit}></PrivateRoute>
+          <PrivateRoute exact path={routes.myproduct} component={Mproduct}></PrivateRoute>
+          <PrivateRoute exact path={routes.product} component={Products}></PrivateRoute>
+          <PrivateRoute exact path={routes.addproduct} component={AddProduct}></PrivateRoute>
+          <PrivateRoute exact path={routes.editproduct} component={EditProduct}></PrivateRoute>
         </Switch>
       </div>
       <div className="container">

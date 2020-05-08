@@ -5,7 +5,7 @@ import { addProduct } from '../../api/api'
 
 export default function AddProduct(props) {
 
-    const [user_id, setUser_id] = useState('5eb142174b35ac0011bb35e7')
+    const [user_id, setUser_id] = useState(localStorage.getItem('MyUser'))
     const [title, settitle] = useState('')
     const [detail, setDetail] = useState('')
     const [stock, setStock] = useState(0)
@@ -52,7 +52,7 @@ export default function AddProduct(props) {
 
                 <div style={{ textAlign: "center" }}>
                     <button type="submit" class="btn btn-success">
-                        Submit
+                        Add
           </button><br></br><br></br>
                 </div>
 

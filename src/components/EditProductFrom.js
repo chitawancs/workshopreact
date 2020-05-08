@@ -1,14 +1,15 @@
-import React , { useState, useEffect }from 'react'
-import {editProduct} from '../api/api'
+import React, { useState, useEffect } from 'react'
+
 
 export default function EditProductFrom(props) {
-   
-    const [user_id, setUser_id] = useState('5eb142174b35ac0011bb35e7')
-    const [title, settitle] = useState('')
+
+    const [user_id, setUser_id] = useState(props.myproduct._id)
+    const [title, setTitle] = useState('')
     const [detail, setDetail] = useState('')
     const [stock, setStock] = useState(0)
     const [price, setPrice] = useState(0)
 
+    console.log(props.myproduct)
     const edit = async (e) => {
         e.preventDefault()
         let product = {
@@ -19,28 +20,29 @@ export default function EditProductFrom(props) {
             price: price
         }
         props.edit(product)
-    
     }
+
     useEffect(() => {
         if (props.check === "Edit") {
-        setUser_id(props.product.user_id)
-        settitle(props.product.title)
-        setDetail(props.product.detail)
-        setStock(props.product.stock)
-        setPrice(props.product.price)
+            setTitle(props.myproduct.title)
+            setDetail(props.myproduct.detail)
+            setStock(props.myproduct.stock)
+            setPrice(props.myproduct.price)
         }
-      }, [])
+    }, [])
+
+
 
     return (
         <div >
             <br></br>
             <div style={{ textAlign: "center" }}>
-                <h1>EditProductFrom</h1>
+                <h1>AddProduct</h1>
             </div>
             <form onSubmit={edit}>
                 <div class="form-group">
                     <h5 style={{ color: 'blue' }}>Title</h5>
-                    <input type="text" value={title} onChange={(e) => settitle(e.target.value)} class="form-control" id="title" aria-describedby="emailHelp" />
+                    <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} class="form-control" id="title" aria-describedby="emailHelp" />
                 </div>
                 <div class="form-group">
                     <h5 style={{ color: 'blue' }}>Detail</h5>
