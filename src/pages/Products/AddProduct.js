@@ -1,4 +1,4 @@
-import React,{ useState } from 'react'
+import React, { useState } from 'react'
 import { addProduct } from '../../api/api'
 
 
@@ -20,9 +20,12 @@ export default function AddProduct(props) {
             stock: stock,
             price: price
         }
-        let result = await addProduct(product)
-        console.log(result)
 
+        let result = await addProduct(product)
+        if (result.status === "success") {
+            window.alert("เพิ่มสินค้าเรียบร้อย")
+            props.history.push(`/myproduct`)
+        }
     }
 
     return (

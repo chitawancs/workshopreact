@@ -38,7 +38,7 @@ export default function EditFrom(props) {
           <label for="salary">Salary</label>
           <input type="number" value={salary} onChange={(e) => setSalary(e.target.value)} class="form-control" id="salary" />
         </div>
-        <button type="submit" class="btn btn-success btn-block">Create</button>
+        <button type="submit" class="btn btn-success btn-block">Save</button>
       </form>
     </div>
   )

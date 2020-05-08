@@ -37,7 +37,7 @@ export default function EditProductFrom(props) {
         <div >
             <br></br>
             <div style={{ textAlign: "center" }}>
-                <h1>AddProduct</h1>
+                <h1>EditProduct</h1>
             </div>
             <form onSubmit={edit}>
                 <div class="form-group">

@@ -1,6 +1,7 @@
-import React,{ useState, useEffect }from 'react'
+import React, { useState, useEffect } from 'react'
 import Header from '../components/้Header'
 import HeaderLogin from '../components/้HeaderLogin'
+
 
 export default function MainHeader() {
 
@@ -11,9 +12,6 @@ export default function MainHeader() {
     }
     else
         show = <Header></Header>
-    
-    
-     
     return (
         <div>
             {show}

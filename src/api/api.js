@@ -17,7 +17,7 @@ export const registerUser = (user) => {
     })
   })
 }
-  
+
 
 export const getAllByIdUser = (id) => {
   return new Promise((resolve, reject) => {

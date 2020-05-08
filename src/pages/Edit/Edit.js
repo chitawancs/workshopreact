@@ -16,7 +16,7 @@ export default function Edit(props) {
   const edit = async (user) => {
     let edit = await editUser(props.match.params.id, user)
     if (edit.status === "success") {
-      props.history.push('/profile/'+props.match.params.id)
+      props.history.push('/profile/' + props.match.params.id)
     } else {
       alert(edit.message)
     }
@@ -26,7 +26,7 @@ export default function Edit(props) {
     <div>
       <h1>Edit Profile</h1>
       <hr />
-      { user && <EditFrom check="Edit" user={user} edit={edit} />}
+      {user && <EditFrom check="Edit" user={user} edit={edit} />}
     </div>
   );
 }

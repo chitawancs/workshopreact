@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 export default function MyProduct(props) {
-    return (
-        <div>
-              <h1>My Products</h1>
-            <table class="table table-striped">
+  return (
+    <div>
+      <h1>My Products</h1>
+      <table class="table table-striped">
         <thead>
           <tr>
             <th scope="col">No.</th>
@@ -20,29 +20,30 @@ export default function MyProduct(props) {
         <tbody>
           {
             props.my_product.map((item, index) => (
-              <tr key = {item,index}>
-              <th scope="row">{ index + 1 }</th>
-              <td >{item._id}</td>
-              <td>{item.user_id}</td>
-              <td>{item.title}</td>
-              <td>{item.detail}</td>
-              <td>{item.stock}</td>
-              <td>{item.price}</td>
-              
-              <td>
-              <Link
+              <tr key={item, index}>
+                <th scope="row">{index + 1}</th>
+                <td >{item._id}</td>
+                <td>{item.user_id}</td>
+                <td>{item.title}</td>
+                <td>{item.detail}</td>
+                <td>{item.stock}</td>
+                <td>{item.price}</td>
+
+                <td>
+                  <Link
                     style={{ textDecoration: "none" }}
                     to={`/product/edit/${item._id}`}
                   >
                     Edit
-                  </Link> | 
-                  <span onClick={() => props.delete(item._id)} style={{ color: "red", cursor: 'pointer' }}>Delete</span>
-              </td>
-            </tr>
+                  </Link>
+                  <br></br> <span onClick={() => props.delete(item._id)} style={{ color: "red", cursor: 'pointer' }}>Delete</span>
+
+                </td>
+              </tr>
             ))
           }
         </tbody>
-      </table> 
-        </div>
-    )
+      </table>
+    </div>
+  )
 }

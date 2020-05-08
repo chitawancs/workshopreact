@@ -1,4 +1,4 @@
-import React ,{ useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { getAllProduct, editProduct } from "../../api/api";
 import EditProductFrom from '../../components/EditProductFrom'
 
@@ -17,7 +17,7 @@ export default function EditProduct(props) {
     };
     fetchMyProduct();
   }, []);
-  
+
 
   const edit = async (myproduct) => {
     let edit = await editProduct(props.match.params.id, myproduct)
@@ -27,14 +27,10 @@ export default function EditProduct(props) {
       alert(edit.message)
     }
   }
-  
 
-
-  
-
-    return (
-        <div >
-            { myproduct && <EditProductFrom check="Edit" myproduct={myproduct} edit={edit} />}
-        </div>
-    )
+  return (
+    <div >
+      {myproduct && <EditProductFrom check="Edit" myproduct={myproduct} edit={edit} />}
+    </div>
+  )
 }

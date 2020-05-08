@@ -17,27 +17,30 @@ import NotFound from './pages/NotFound/NotFound'
 var routes = {
   home: '/home',
   login: '/login',
-  register:'/register',
+  register: '/register',
   profile: '/profile/:id',
   edit: '/edit/:id',
   product: '/product',
   myproduct: '/myproduct',
   addproduct: '/product/add',
-  editproduct: '/product/edit/:id'
+  editproduct: '/product/edit/:id',
+  notfound : '*'
 }
 
 function App() {
   return (
     <div>
-      <MainHeader/>
+      <MainHeader />
       <div className="container">
         <Switch>
-        <Redirect exact from="/" to={routes.login}></Redirect>
+          <Redirect exact from="/" to={routes.login}></Redirect>
           <Route exact path={routes.login} component={Login}></Route>
           <Route exact path={routes.register} component={Register}></Route>
-          
-          
+          <Route exact path={routes.notfound} component={NotFound}></Route>
         </Switch>
+      </div>
+
+      <div className="container">
         <Switch>
           <PrivateRoute exact path={routes.home} component={Home}></PrivateRoute>
           <PrivateRoute exact path={routes.profile} component={Profile}></PrivateRoute>
@@ -46,11 +49,6 @@ function App() {
           <PrivateRoute exact path={routes.product} component={Products}></PrivateRoute>
           <PrivateRoute exact path={routes.addproduct} component={AddProduct}></PrivateRoute>
           <PrivateRoute exact path={routes.editproduct} component={EditProduct}></PrivateRoute>
-        </Switch>
-      </div>
-      <div className="container">
-        <Switch>
-          
         </Switch>
       </div>
     </div>

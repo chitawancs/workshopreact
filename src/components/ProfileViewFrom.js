@@ -7,23 +7,19 @@ export default function ProfileViewFrom(props) {
     const [salary, setSalary] = useState(0)
 
     useEffect(() => {
-      
-          setName(props.user.name)
-          setAge(props.user.age)
-          setSalary(props.user.salary)
-        
+        setName(props.user.name)
+        setAge(props.user.age)
+        setSalary(props.user.salary)
     })
-    
 
-    return (    
-       
+    return (
+
         <div>
-         <h3>Name : {name}</h3>
-         <h3>Age : {age}</h3>
-         <h3>Salary : {salary}</h3>
-        
-         <Link  to={`/edit/${props.user._id}`} type="button" class="btn btn-primary">
-            Edit Profile
+            <h3>Name : {name}</h3>
+            <h3>Age : {age}</h3>
+            <h3>Salary : {salary}</h3>
+            <Link to={`/edit/${props.user._id}`} type="button" class="btn btn-primary">
+                Edit Profile
         </Link>
         </div>
     )
